@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({5:[function(require,module,exports) {
+})({10:[function(require,module,exports) {
 /**
  * San
  * Copyright 2016 Baidu Inc. All rights reserved.
@@ -9327,7 +9327,7 @@ function camelComponentBinds(binds) {
     // #[end]
 })(this);
 
-},{}],3:[function(require,module,exports) {
+},{}],6:[function(require,module,exports) {
 'use strict';
 
 var _san = require('san');
@@ -9336,19 +9336,27 @@ var _san2 = _interopRequireDefault(_san);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var inform = {};
 var MyApp = _san2.default.defineComponent({
-  template: '<div>Hello {{name}}!</div>',
-
-  initData: function initData() {
-    return {
-      name: 'San'
-    };
+  clear: function clear(inform) {
+    console.log(inform);
+    console.log(this.data.inform);
+    this.data.set('inform.name', '');
+    this.data.set('inform.age', '');
+    this.data.set('inform.description', '');
+    //清除对象内容
+  },
+  template: '<div>' + '<div>' + '<input type="text" value="{= inform.name =}" placeholder="姓名（string）">' + '<input type="text" value="{= inform.age | toNumber(age) =}" placeholder="年龄（number）">' + '<input type="text" value="{= inform.description =}" placeholder="简介（string）">' + '</div>' + '<div>' + '<span>移除信息</span><button on-click="clear(inform)">移除信息</button>' + '</div>' + '<div>' + '<p>姓名：{{inform.name}}</p>' + '<p>年龄：{{inform.age}}</p>' + '<p>说明：{{inform.description}}</p>' + '</div>' + '</div>',
+  dataTypes: { //对象校验
+    name: _san.DataTypes.string,
+    age: _san.DataTypes.number,
+    description: _san.DataTypes.string
   }
 });
 
 var myApp = new MyApp();
 myApp.attach(document.body);
-},{"san":5}],9:[function(require,module,exports) {
+},{"san":10}],24:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -9378,7 +9386,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50561' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61799' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -9517,5 +9525,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[9,3])
+},{}]},{},[24,6])
 //# sourceMappingURL=/main.265e3d3e.map
