@@ -1,0 +1,22 @@
+{
+  "name": "sans_practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "DouglasDong <ad546971975@gmail.com> (http://www.douglasdong.site/)",
+  "license": "MIT",
+
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1"
+  },
+  "dependencies": {
+    "node-sass": "^4.8.3",
+    "san": "^3.5.7"
+  },
+  "description": "sans-practice",
+  "scripts": {
+    "test": "echo \"Error: no test specified \" && exit 1",
+    "start": "parcel index.html",
+    "dev": "rd/s/q dist & parcel index.html ",
+    "build": "parcel build index.html -d build --public-url ./"
+  }
+}
